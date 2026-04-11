@@ -101,7 +101,7 @@ prototype
 
 ## 🎨 Design e UX
 
-O design foi inspirado em aplicativos financeiros modernos (como Nubank), priorizando:
+O design foi inspirado em aplicativos financeiros modernos, priorizando:
 
 * Interface limpa
 * Layout em cards
