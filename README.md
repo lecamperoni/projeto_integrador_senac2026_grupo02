@@ -1,0 +1,1 @@
+# projeto_integrador_senac2026_grupo02
