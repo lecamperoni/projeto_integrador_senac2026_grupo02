@@ -1,4 +1,4 @@
-// ===================== STORAGE =====================
+//STORAGE
 function getExpenses() {
     return JSON.parse(localStorage.getItem("expenses")) || [];
 }
@@ -15,10 +15,15 @@ function saveIncomes(data) {
     localStorage.setItem("incomes", JSON.stringify(data));
 }
 
-// ===================== CREATE =====================
+//CREATE
 function addExpense() {
     const valor = document.getElementById("valor").value;
     const categoria = document.getElementById("categoria").value;
+
+    if (!valor || !categoria) {
+        alert("Preencha todos os campos!");
+        return;
+    }
 
     const expenses = getExpenses();
 
@@ -36,6 +41,11 @@ function addIncome() {
     const valor = document.getElementById("valor").value;
     const fonte = document.getElementById("fonte").value;
 
+    if (!valor || !fonte) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
     const incomes = getIncomes();
 
     incomes.push({
@@ -48,7 +58,7 @@ function addIncome() {
     window.location.href = "dashboard.html";
 }
 
-// ===================== READ =====================
+//READ
 function loadDashboard() {
     const expenses = getExpenses();
     const incomes = getIncomes();
@@ -68,24 +78,29 @@ function loadDashboard() {
 
     expenses.forEach(e => {
         const li = document.createElement("li");
+
         li.innerHTML = `
-            ${e.categoria} - R$ ${e.valor}
-            <button onclick="deleteExpense(${e.id})">X</button>
-            <button onclick="goToEdit(${e.id})">Editar</button>
+            <span>${e.categoria} - R$ ${e.valor.toFixed(2)}</span>
+            <div>
+                <button class="btn-edit" onclick="goToEdit(${e.id})">✏️</button>
+                <button class="btn-delete" onclick="deleteExpense(${e.id})">🗑️</button>
+            </div>
         `;
+
         lista.appendChild(li);
     });
 }
 
-// ===================== DELETE =====================
+//DELETE
 function deleteExpense(id) {
     let expenses = getExpenses();
     expenses = expenses.filter(e => e.id !== id);
+
     saveExpenses(expenses);
     loadDashboard();
 }
 
-// ===================== EDIT =====================
+//EDIT
 function goToEdit(id) {
     localStorage.setItem("editId", id);
     window.location.href = "edit-expense.html";
@@ -96,6 +111,8 @@ function loadEdit() {
     const expenses = getExpenses();
 
     const exp = expenses.find(e => e.id === id);
+
+    if (!exp) return;
 
     document.getElementById("valor").value = exp.valor;
     document.getElementById("categoria").value = exp.categoria;
@@ -120,7 +137,7 @@ function updateExpense() {
     window.location.href = "dashboard.html";
 }
 
-// ===================== REPORT =====================
+//REPORT
 function loadReports() {
     const expenses = getExpenses();
 
@@ -142,21 +159,24 @@ function loadReports() {
     drawChart(categorias);
 }
 
-// ===================== CHART =====================
+//CHART
 function drawChart(data) {
     const canvas = document.getElementById("chart");
     const ctx = canvas.getContext("2d");
 
-    let total = Object.values(data).reduce((a, b) => a + b, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const total = Object.values(data).reduce((a, b) => a + b, 0);
 
     let start = 0;
 
     for (let cat in data) {
-        let slice = (data[cat] / total) * 2 * Math.PI;
+        const slice = (data[cat] / total) * 2 * Math.PI;
 
         ctx.beginPath();
         ctx.moveTo(150, 150);
         ctx.arc(150, 150, 100, start, start + slice);
+        ctx.closePath();
         ctx.fillStyle = getRandomColor();
         ctx.fill();
 
@@ -165,5 +185,5 @@ function drawChart(data) {
 }
 
 function getRandomColor() {
-    return "#" + Math.floor(Math.random()*16777215).toString(16);
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
