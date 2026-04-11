@@ -1,17 +1,97 @@
 body {
-  font-family: Arial;
-  text-align: center;
-  margin-top: 50px;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #F5F5F5;
 }
 
-input {
-  display: block;
-  margin: 10px auto;
-  padding: 8px;
+/* HEADER */
+.header {
+  background: #820AD1;
+  color: white;
+  padding: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
+.header h2 {
+  margin: 0;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* SALDO */
+.balance {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* LISTA */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  margin: 10px 15px;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BOTÕES */
 button {
-  padding: 10px 20px;
-  margin: 10px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+.btn-delete {
+  background: #ff4d4d;
+  color: white;
+}
+
+.btn-edit {
+  background: #820AD1;
+  color: white;
+}
+
+/* BOTÃO FLUTUANTE */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #820AD1;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+/* INPUTS */
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* BOTÃO PRINCIPAL */
+.primary-btn {
+  background: #820AD1;
+  color: white;
+  width: 90%;
+  padding: 12px;
 }
