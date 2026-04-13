@@ -1,1 +1,27 @@
+<body onload="loadDashboard()">
+
+<div class="header">
+  <h2>Olá 👋</h2>
+  <p>Seu resumo financeiro</p>
+</div>
+
+<div class="card">
+  <p>Saldo</p>
+  <p class="balance">R$ <span id="saldo"></span></p>
+</div>
+
+<div class="card">
+  <p>Receitas: R$ <span id="receitas"></span></p>
+  <p>Gastos: R$ <span id="gastos"></span></p>
+</div>
+
+<ul id="lista"></ul>
+
+<!-- BOTÃO FLUTUANTE -->
+<button class="fab" onclick="window.location.href='add-expense.html'">
++
+</button>
+
+<script src="app.js"></script>
+</body>
 
