@@ -1,17 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Receita</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
+  <div class="header">
+    <h2>Nova Receita</h2>
+    <p>Cadastre uma nova entrada financeira</p>
+  </div>
 
-<div class="header">
-  <h2>Nova Receita</h2>
-</div>
+  <div class="card">
+    <input id="valor" placeholder="Valor">
+    <input id="fonte" placeholder="Fonte">
 
-<div class="card">
-  <input id="valor" placeholder="Valor">
-  <input id="fonte" placeholder="Fonte">
+    <button class="primary-btn" onclick="addIncome()">
+      Salvar
+    </button>
+  </div>
 
-  <button class="primary-btn" onclick="addIncome()">
-    Salvar
-  </button>
-</div>
+  <div class="card">
+    <button class="secondary-btn" onclick="window.location.href='dashboard.html'">
+      Voltar ao dashboard
+    </button>
+  </div>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
+</html>
