@@ -1,27 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body onload="loadDashboard()">
+  <div class="header">
+    <h2>Ola</h2>
+    <p>Seu resumo financeiro</p>
+  </div>
 
-<div class="header">
-  <h2>Olá 👋</h2>
-  <p>Seu resumo financeiro</p>
-</div>
+  <div class="card">
+    <p>Saldo</p>
+    <p class="balance">R$ <span id="saldo"></span></p>
+  </div>
 
-<div class="card">
-  <p>Saldo</p>
-  <p class="balance">R$ <span id="saldo"></span></p>
-</div>
+  <div class="card">
+    <p>Receitas: R$ <span id="receitas"></span></p>
+    <p>Gastos: R$ <span id="gastos"></span></p>
+  </div>
 
-<div class="card">
-  <p>Receitas: R$ <span id="receitas"></span></p>
-  <p>Gastos: R$ <span id="gastos"></span></p>
-</div>
+  <div class="card actions">
+    <button class="primary-btn half-btn" onclick="window.location.href='add-income.html'">Nova receita</button>
+    <button class="primary-btn half-btn" onclick="window.location.href='reports.html'">Relatorios</button>
+  </div>
 
-<ul id="lista"></ul>
+  <ul id="lista"></ul>
 
-<!-- BOTÃO FLUTUANTE -->
-<button class="fab" onclick="window.location.href='add-expense.html'">
-+
-</button>
+  <button class="fab" onclick="window.location.href='add-expense.html'">+</button>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
-
+</html>
