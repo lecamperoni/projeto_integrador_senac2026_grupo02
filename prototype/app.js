@@ -1,4 +1,3 @@
-//STORAGE
 function getExpenses() {
     return JSON.parse(localStorage.getItem("expenses")) || [];
 }
@@ -15,7 +14,6 @@ function saveIncomes(data) {
     localStorage.setItem("incomes", JSON.stringify(data));
 }
 
-//CREATE
 function addExpense() {
     const valor = document.getElementById("valor").value;
     const categoria = document.getElementById("categoria").value;
@@ -58,7 +56,6 @@ function addIncome() {
     window.location.href = "dashboard.html";
 }
 
-//READ
 function loadDashboard() {
     const expenses = getExpenses();
     const incomes = getIncomes();
@@ -82,8 +79,8 @@ function loadDashboard() {
         li.innerHTML = `
             <span>${e.categoria} - R$ ${e.valor.toFixed(2)}</span>
             <div>
-                <button class="btn-edit" onclick="goToEdit(${e.id})">✏️</button>
-                <button class="btn-delete" onclick="deleteExpense(${e.id})">🗑️</button>
+                <button class="btn-edit" onclick="goToEdit(${e.id})">Editar</button>
+                <button class="btn-delete" onclick="deleteExpense(${e.id})">Excluir</button>
             </div>
         `;
 
@@ -91,7 +88,6 @@ function loadDashboard() {
     });
 }
 
-//DELETE
 function deleteExpense(id) {
     let expenses = getExpenses();
     expenses = expenses.filter(e => e.id !== id);
@@ -100,7 +96,6 @@ function deleteExpense(id) {
     loadDashboard();
 }
 
-//EDIT
 function goToEdit(id) {
     localStorage.setItem("editId", id);
     window.location.href = "edit-expense.html";
@@ -137,7 +132,6 @@ function updateExpense() {
     window.location.href = "dashboard.html";
 }
 
-//REPORT
 function loadReports() {
     const expenses = getExpenses();
 
@@ -150,7 +144,7 @@ function loadReports() {
     const lista = document.getElementById("relatorio");
     lista.innerHTML = "";
 
-    for (let cat in categorias) {
+    for (const cat in categorias) {
         const li = document.createElement("li");
         li.innerText = `${cat}: R$ ${categorias[cat].toFixed(2)}`;
         lista.appendChild(li);
@@ -159,7 +153,6 @@ function loadReports() {
     drawChart(categorias);
 }
 
-//CHART
 function drawChart(data) {
     const canvas = document.getElementById("chart");
     const ctx = canvas.getContext("2d");
@@ -168,9 +161,13 @@ function drawChart(data) {
 
     const total = Object.values(data).reduce((a, b) => a + b, 0);
 
+    if (!total) {
+        return;
+    }
+
     let start = 0;
 
-    for (let cat in data) {
+    for (const cat in data) {
         const slice = (data[cat] / total) * 2 * Math.PI;
 
         ctx.beginPath();
