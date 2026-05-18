@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Novo Gasto</title>
+  <title>Editar Gasto</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="loadEdit()">
   <div class="header">
-    <h2>Novo Gasto</h2>
-    <p>Registre uma nova despesa</p>
+    <h2>Editar Gasto</h2>
+    <p>Atualize as informacoes da despesa</p>
   </div>
 
   <div class="card">
     <input id="valor" placeholder="Valor">
     <input id="categoria" placeholder="Categoria">
 
-    <button class="primary-btn" onclick="addExpense()">
+    <button class="primary-btn" onclick="updateExpense()">
       Salvar
     </button>
   </div>
