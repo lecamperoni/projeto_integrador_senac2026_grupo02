@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Gasto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h2>Novo Gasto</h2>
+    <p>Registre uma nova despesa</p>
+  </div>
 
+  <div class="card">
+    <input id="valor" placeholder="Valor">
+    <input id="categoria" placeholder="Categoria">
+
+    <button class="primary-btn" onclick="addExpense()">
+      Salvar
+    </button>
+  </div>
+
+  <div class="card">
+    <button class="secondary-btn" onclick="window.location.href='dashboard.html'">
+      Voltar ao dashboard
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
