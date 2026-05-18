@@ -4,7 +4,10 @@ body {
   background-color: #F5F5F5;
 }
 
-/* HEADER */
+* {
+  box-sizing: border-box;
+}
+
 .header {
   background: #820AD1;
   color: white;
@@ -17,22 +20,29 @@ body {
   margin: 0;
 }
 
-/* CARDS */
+.header p {
+  margin: 8px 0 0;
+  opacity: 0.95;
+}
+
 .card {
   background: white;
   margin: 15px;
   padding: 15px;
   border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* SALDO */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
 .balance {
   font-size: 22px;
   font-weight: bold;
 }
 
-/* LISTA */
 ul {
   list-style: none;
   padding: 0;
@@ -48,7 +58,6 @@ li {
   align-items: center;
 }
 
-/* BOTÕES */
 button {
   border: none;
   padding: 8px 12px;
@@ -66,7 +75,6 @@ button {
   color: white;
 }
 
-/* BOTÃO FLUTUANTE */
 .fab {
   position: fixed;
   bottom: 20px;
@@ -79,7 +87,6 @@ button {
   height: 60px;
 }
 
-/* INPUTS */
 input {
   width: 90%;
   padding: 10px;
@@ -88,10 +95,29 @@ input {
   border: 1px solid #ccc;
 }
 
-/* BOTÃO PRINCIPAL */
 .primary-btn {
   background: #820AD1;
   color: white;
   width: 90%;
   padding: 12px;
+}
+
+.secondary-btn {
+  background: #ece3f7;
+  color: #5f2b8c;
+  width: 90%;
+  padding: 12px;
+}
+
+.half-btn {
+  width: 100%;
+}
+
+.chart-card {
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  max-width: 100%;
 }
