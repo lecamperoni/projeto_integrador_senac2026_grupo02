@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Gasto</title>
+  <title>Novo Gasto</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="loadEdit()">
-  <div class="header">
-    <h2>Editar Gasto</h2>
-    <p>Atualize as informacoes da despesa</p>
-  </div>
 
-  <div class="card">
-    <input id="valor" placeholder="Valor">
-    <input id="categoria" placeholder="Categoria">
+<body>
 
-    <button class="primary-btn" onclick="updateExpense()">
-      Salvar
-    </button>
-  </div>
+<div class="header">
+  <h2>Novo Gasto</h2>
+  <p>Cadastre uma nova despesa</p>
+</div>
 
-  <div class="card">
-    <button class="secondary-btn" onclick="window.location.href='dashboard.html'">
-      Voltar ao dashboard
-    </button>
-  </div>
+<div class="card">
+  <input id="valor" placeholder="Valor">
+  <input id="categoria" placeholder="Categoria">
 
-  <script src="app.js"></script>
+  <button class="primary-btn" onclick="addExpense()">
+    Salvar
+  </button>
+</div>
+
+<div class="card">
+  <button class="secondary-btn"
+    onclick="window.location.href='dashboard.html'">
+    Voltar ao dashboard
+  </button>
+</div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
